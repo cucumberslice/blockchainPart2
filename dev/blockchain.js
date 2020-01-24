@@ -3,9 +3,11 @@ const sha256 = require('sha256')
 function Blockchain() {
   this.chain = [];
   this.pendingTransactions = [];
+
+  this.createNewBlock(100, '0', '0') //arbitrary genesis block
 }
 
-//nocne is pretty much a proof of work number
+//nonce is pretty much a proof of work number
 Blockchain.prototype.createNewBlock = function(nonce, previousBlockHash, hash) {
   const newBlock = {
     index: this.chain.length + 1,
